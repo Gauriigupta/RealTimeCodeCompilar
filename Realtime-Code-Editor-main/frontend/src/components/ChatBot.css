@@ -1,0 +1,355 @@
+body,
+html,
+#root {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.chat-root {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    border-right: 1px solid #ddd;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.sidebar li.me {
+    background: #e6f7ff;
+    font-weight: 600;
+}
+
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.join-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 320px;
+}
+
+.join-form input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.join-form button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.messages {
+    padding: 12px;
+    flex: 1;
+    overflow-y: auto;
+    background: #fafafa;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    max-width: 70%;
+}
+
+.chat-message .meta {
+    font-size: 12px;
+    color: #666;
+    display: flex;
+    gap: 8px;
+}
+
+.chat-message .text {
+    margin-top: 6px;
+    font-size: 15px;
+}
+
+.user-message {
+    background: #d1ffd6;
+    margin-left: auto;
+}
+
+.bot-message {
+    background: #fff;
+    margin-right: auto;
+}
+
+.system-message {
+    background: #fff6d1;
+    text-align: center;
+    max-width: 100%;
+}
+
+
+.send-form {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #eee;
+}
+
+.send-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.send-form button {
+    padding: 10px;
+}
+
+/* General Chat Wrapper Styles */
+.chat-wrapper {
+    background-color: #2d3748;
+    /* Dark background like editor/sidebar */
+    border-left: 1px solid #3c3c3c;
+    /* Subtle border to separate from editor */
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* Adjust width as needed */
+    height: 100vh;
+    /* Full height */
+    color: #e0e0e0;
+    /* Light text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Consistent font */
+    box-sizing: border-box;
+    /* Include padding/border in element's total width and height */
+    padding: 15px;
+    /* Add some padding */
+}
+
+.chat-wrapper h3 {
+    color: #f4f87f;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-align: center;
+    border-bottom: 1px solid #3c3c3c;
+    padding-bottom: 10px;
+}
+
+/* Messages Container */
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #1a202c;
+}
+
+/* Scrollbar styling for a darker theme */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #232323;
+    /* Darker track */
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #555;
+    /* Darker thumb */
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Individual Message Styles */
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.chat-message .meta {
+    font-size: 0.75em;
+    color: #aaa;
+    
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.chat-message .sender {
+    font-weight: bold;
+    color: #888;
+    
+    margin-right: 10px;
+   
+}
+
+.chat-message .time {
+    color: #666;
+    
+}
+
+.chat-message .text {
+    color: #e0e0e0;
+   
+}
+
+/* Sender's own messages */
+.user-message {
+    background-color: #007bff;
+   
+    align-self: flex-end;
+   
+    color: #ffffff;
+   
+    border-bottom-right-radius: 0;
+    
+}
+
+.user-message .meta .sender,
+.user-message .meta .time {
+    color: rgba(255, 255, 255, 0.8);
+   
+}
+
+
+.bot-message {
+   
+    background-color: #3a3a3a;
+   
+    align-self: flex-start;
+    
+    border: 1px solid #4a4a4a;
+    
+    border-bottom-left-radius: 0;
+   
+}
+
+.bot-message .meta .sender,
+.bot-message .meta .time {
+    color: #999;
+   
+}
+
+
+/* System messages (e.g., "User joined") */
+.system-message {
+    background-color: #4a4a4a;
+    
+    color: #c9c9c9;
+    text-align: center;
+    align-self: center;
+   
+    width: fit-content;
+   
+    max-width: 90%;
+    font-style: italic;
+    font-size: 0.8em;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    
+}
+
+.system-message .meta {
+    display: none;
+    
+}
+
+
+/* Send Form and Input */
+.send-form {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    
+}
+
+.send-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #4a4a4a;
+   
+    border-radius: 5px;
+    background-color: #3a3a3a;
+  
+    color: #e0e0e0;
+    font-size: 0.9em;
+    outline: none;
+   
+}
+
+.send-form input[type="text"]::placeholder {
+    color: #888;
+}
+
+.send-form input[type="text"]:focus {
+    border-color: #007bff;
+   
+}
+
+.send-form button {
+flex: 1;
+    padding: 0.4rem;
+    background: linear-gradient(110deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.send-form button:hover {
+    background-color: #0056b3;
+    
+}
+
+.send-form button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
